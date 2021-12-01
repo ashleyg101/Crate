@@ -12,12 +12,14 @@ class searchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    var searchResults = [SearchResult]()
+    var hasSearched = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let url = URL(string: "https://api.themoviedb.org/3/movie/297762/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=1")!
+        // API request
+        let url = URL(string: " https://api.themoviedb.org/3/movie/297762/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=1")!
 //        "https://musicbrainz.org/ws/2/recording?query=%22we%20will%20rock%20you%22%20AND%20arid:0383dadf-2a4e-4d10-a46a-e9e041da8eb3"
-        
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -25,8 +27,8 @@ class searchViewController: UIViewController {
              if let error = error {
                     print(error.localizedDescription)
              } else if let data = data {
-                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                    print(dataDictionary)
+                let results = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                    print(results)
              }
         }
         task.resume()
@@ -37,17 +39,74 @@ class searchViewController: UIViewController {
 // MARK: - Search Bar Delegate
 extension searchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("The search text is: '\(searchBar.text!)'")
+        
+        searchBar.resignFirstResponder()                        // dismiss keyboard
+        print("The search text is: '\(searchBar.text!)'")       // user text input
+       
+        // mock search results
+        searchResults = []
+        if searchBar.text! != "Blohb" {
+            for i in 0...2 {
+                let searchResult = SearchResult()
+                searchResult.name = String(format: "Result %d", i)
+                searchResult.artistName = searchBar.text!
+                searchResults.append(searchResult)
+            }
+        }
+        hasSearched = true
+        tableView.reloadData()      // refresh tableView
     }
 }
 
 // MARK: - Table View Delegate
 extension searchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        if !hasSearched {
+            return 0
+        } else if searchResults.count == 0 {
+            return 1
+        } else {
+            return searchResults.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cellIdentifier = "SearchResultCell"
+        var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
+        if cell == nil {
+            cell = UITableViewCell(
+                style: .subtitle, reuseIdentifier: cellIdentifier)
+        }
+        // empty search results
+        if searchResults.count == 0 {
+            cell.textLabel!.text = "(Nothing found)"
+            cell.detailTextLabel!.text = ""
+        } else {
+            let searchResult = searchResults[indexPath.row]
+            cell.textLabel!.text = searchResult.name
+            cell.detailTextLabel!.text = searchResult.artistName
+        }
+        
+        //cell.textLabel!.text = searchResults[indexPath.row]
+    
+        return cell
     }
+    
+    func tableView(
+        _ tableView: UITableView, didSelectRowAt indexPath: IndexPath
+    ) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(
+        _ tableView: UITableView, willSelectRowAt indexPath: IndexPath
+    ) -> IndexPath? {
+        if searchResults.count == 0 {
+            return nil
+        } else {
+            return indexPath
+        }
+    }
+        
 }
+

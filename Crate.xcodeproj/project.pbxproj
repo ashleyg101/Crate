@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D43D4EE2757425000A19761 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D43D4ED2757425000A19761 /* SearchResult.swift */; };
 		5D4B7AB327554ACB003749D4 /* favoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4B7AB227554ACB003749D4 /* favoritesViewController.swift */; };
 		5D63D64B27543DE10007EEC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D63D64A27543DE10007EEC1 /* AppDelegate.swift */; };
 		5D63D64D27543DE10007EEC1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D63D64C27543DE10007EEC1 /* SceneDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D43D4ED2757425000A19761 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		5D4B7AB227554ACB003749D4 /* favoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favoritesViewController.swift; sourceTree = "<group>"; };
 		5D63D64727543DE10007EEC1 /* Crate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D63D64A27543DE10007EEC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				5D63D65527543DE30007EEC1 /* LaunchScreen.storyboard */,
 				5D63D65827543DE30007EEC1 /* Info.plist */,
 				5D4B7AB227554ACB003749D4 /* favoritesViewController.swift */,
+				5D43D4ED2757425000A19761 /* SearchResult.swift */,
 			);
 			path = Crate;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			files = (
 				5D63D64B27543DE10007EEC1 /* AppDelegate.swift in Sources */,
 				5D63D64D27543DE10007EEC1 /* SceneDelegate.swift in Sources */,
+				5D43D4EE2757425000A19761 /* SearchResult.swift in Sources */,
 				5D4B7AB327554ACB003749D4 /* favoritesViewController.swift in Sources */,
 				5D63D66E275459540007EEC1 /* searchViewController.swift in Sources */,
 			);
