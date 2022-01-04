@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" id="BEc-iw-UKs" customClass="SearchResultCell" customModule="Crate" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BEc-iw-UKs" id="Ue2-BG-uYY">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="sY4-77-lUU">
+                        <rect key="frame" x="16" y="11.5" width="60" height="57"/>
+                        <color key="tintColor" red="0.33652610840000002" green="0.66889476780000001" blue="0.26087656879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="rW7-wZ-mqp"/>
+                            <constraint firstAttribute="height" constant="60" id="rfP-mO-c9s"/>
+                        </constraints>
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="thin"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipj-hh-wWh">
+                        <rect key="frame" x="84" y="16" width="314" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izC-q2-Rku">
+                        <rect key="frame" x="84" y="45" width="314" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="sY4-77-lUU" firstAttribute="top" secondItem="Ue2-BG-uYY" secondAttribute="top" constant="10" id="1GV-A0-o6z"/>
+                    <constraint firstItem="Ipj-hh-wWh" firstAttribute="top" secondItem="Ue2-BG-uYY" secondAttribute="top" constant="16" id="Xep-fA-zYr"/>
+                    <constraint firstAttribute="bottom" secondItem="izC-q2-Rku" secondAttribute="bottom" constant="18" id="ZPn-Z1-9zV"/>
+                    <constraint firstAttribute="trailing" secondItem="izC-q2-Rku" secondAttribute="trailing" constant="16" id="ZlY-CC-PkD"/>
+                    <constraint firstItem="izC-q2-Rku" firstAttribute="leading" secondItem="sY4-77-lUU" secondAttribute="trailing" constant="8" id="e7U-cO-1YB"/>
+                    <constraint firstAttribute="trailing" secondItem="Ipj-hh-wWh" secondAttribute="trailing" constant="16" id="hkJ-Rf-Ckm"/>
+                    <constraint firstItem="sY4-77-lUU" firstAttribute="leading" secondItem="Ue2-BG-uYY" secondAttribute="leading" constant="16" id="j2N-8u-L2x"/>
+                    <constraint firstItem="Ipj-hh-wWh" firstAttribute="leading" secondItem="sY4-77-lUU" secondAttribute="trailing" constant="8" id="j8j-BM-420"/>
+                    <constraint firstItem="izC-q2-Rku" firstAttribute="top" secondItem="Ipj-hh-wWh" secondAttribute="bottom" constant="8" id="vDc-f0-w63"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="artistNameLabel" destination="izC-q2-Rku" id="gBA-nt-GuI"/>
+                <outlet property="artworkImageView" destination="sY4-77-lUU" id="jGr-jn-0LE"/>
+                <outlet property="nameLabel" destination="Ipj-hh-wWh" id="jK2-V0-EHI"/>
+            </connections>
+            <point key="canvasLocation" x="-181.15942028985509" y="60.9375"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="square" catalog="system" width="128" height="114"/>
+    </resources>
+</document>
